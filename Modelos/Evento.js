@@ -12,7 +12,7 @@ export default class Evento {
     #preco;
     #ingressos;
 
-    construtor(codigo=0, nome="", horario="", dia="", localizacao="", duracao="", classificacao="", preco="", ingressos="") {
+    constructor(codigo=0, nome="", horario="", dia="", localizacao="", duracao="", classificacao="", preco="", ingressos="") {
         this.#codigo = codigo;
         this.#nome = nome;
         this.#horario = horario;
@@ -120,5 +120,19 @@ export default class Evento {
 
     toString( ) {
         return `Evento código: ${this.codigo} - nome: ${this.nome}`
+    }
+
+    toJSON( ) {
+        return {
+            "codigo": this.#codigo,
+            "nome": this.#nome,
+            "horario": this.#horario,
+            "dia": this.#dia,
+            "localizacao": this.#localizacao,
+            "duracao": this.#duracao,
+            "classificacao": this.#classificacao,
+            "preco": this.#preco,
+            "ingressos": this.#ingressos
+        }
     }
 }
