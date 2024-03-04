@@ -1,6 +1,6 @@
 import mysql from 'mysql2/promise';
 
-export default async function conectar( ) {
+export default async function conectar ( ) {
     if (global.pool !== undefined) {
         return await global.pool.getConnection( );
     }
@@ -8,7 +8,7 @@ export default async function conectar( ) {
         const pool = mysql.createPool({
             host: 'localhost',
             user: 'root',
-            password: '321',
+            password: '',
             port: '3306',
             database: 'backend',
             waitForConnections: true,

@@ -1,21 +1,23 @@
+import EventoDAO from "../Persistencia/EventoDAO.js";
+
 export default class Evento {
     //atributos
-    #nome
-    #codigo
-    #horario
-    #data
-    #local
-    #duracao
-    #classificacao
-    #preco
-    #ingressos
+    #codigo;
+    #nome;
+    #horario;
+    #dia;
+    #localizacao;
+    #duracao;
+    #classificacao;
+    #preco;
+    #ingressos;
 
-    construtor(nome = "", codigo = "", horario = "", data = "", local = "", duracao = "", classificacao = "", preco = "", ingressos = "") {
-        this.#nome = nome;
+    construtor(codigo=0, nome="", horario="", dia="", localizacao="", duracao="", classificacao="", preco="", ingressos="") {
         this.#codigo = codigo;
+        this.#nome = nome;
         this.#horario = horario;
-        this.#data = data;
-        this.#local = local;
+        this.#dia = dia;
+        this.#localizacao = localizacao;
         this.#duracao = duracao;
         this.#classificacao = classificacao;
         this.#preco = preco;
@@ -47,20 +49,20 @@ export default class Evento {
         this.#horario = novoHorario;
     }
 
-    get data( ) {
-        return this.#data;
+    get dia( ) {
+        return this.#dia;
     }
 
-    set data(novoData) {
-        this.#data = novoData;
+    set dia(novoDia) {
+        this.#dia = novoDia;
     }
 
-    get local( ) {
-        return this.#local;
+    get localizacao( ) {
+        return this.#localizacao;
     }
 
-    set local(novoLocal) {
-        this.#local = novoLocal;
+    set localizacao(novoLocalizacao) {
+        this.#localizacao = novoLocalizacao;
     }
 
     get duracao( ) {
@@ -96,19 +98,27 @@ export default class Evento {
     }
 
     //métodos
-    gravar( ) {
-
+    async gravar( ) {
+        const dao = new EventoDAO( );
+        await dao.gravar(this);
     }
 
-    atualizar( ) {
-        
+    async atualizar( ) {
+        const dao = new EventoDAO( );
+        await dao.atualizar(this);
     }
 
-    excluir( ) {
-        
+    async excluir( ) {
+        const dao = new EventoDAO( );
+        await dao.excluir(this);
     }
 
-    consultar(termo) {
-        
+    async consultar(termoDePesquisa) {
+        const dao = new EventoDAO( );
+        return await dao.consultar(termoDePesquisa);
+    }
+
+    toString( ) {
+        return `Evento código: ${this.codigo} - nome: ${this.nome}`
     }
 }
