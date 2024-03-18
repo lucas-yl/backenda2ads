@@ -73,11 +73,10 @@ export default class EventoCtrl {
             if (codigo && codigo > 0 && nome && horario && dia && localizacao && duracao && classificacao && preco && ingressos) {
                 const evento = new Evento (codigo, nome, horario, dia, localizacao, duracao, classificacao, preco, ingressos)
                 evento.atualizar( ).then(( ) => {
-                    resposta.status(201)
+                    resposta.status(200)
                     resposta.json({
                         "status": true,
                         "mensagem": "Evento atualizado com sucesso!",
-                        "codigo_evento": evento.codigo
                     })
                 })
                 .catch((erro) => {

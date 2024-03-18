@@ -3,12 +3,13 @@
 //cliente = endpoint
 //localhost = dominio da aplicacao
 import {Router} from 'express'
-import EventoCtrl from "../Controles/eventoCtrl.js"
+import eventoCtrl from "../Controles/eventoCtrl.js"
 
 const rotaEvento = new Router( )
-const eveCtrl = new EventoCtrl( )
+const eveCtrl = new eventoCtrl( )
 
-rotaEvento.get('/:termo', eveCtrl.consultar) //ao receber método GET, atribuir função consultar
+rotaEvento
+.get('/:termo', eveCtrl.consultar) //ao receber método GET, atribuir função consultar
 .post('/', eveCtrl.gravar)
 .put('/:codigo', eveCtrl.atualizar)
 .patch('/:codigo', eveCtrl.atualizar)
