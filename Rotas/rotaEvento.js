@@ -9,6 +9,7 @@ const rotaEvento = new Router( )
 const eveCtrl = new eventoCtrl( )
 
 rotaEvento
+.get('/', eveCtrl.consultar)
 .get('/:termo', eveCtrl.consultar) //ao receber método GET, atribuir função consultar
 .post('/', eveCtrl.gravar)
 .put('/:codigo', eveCtrl.atualizar)

@@ -21,15 +21,15 @@ app.listen(porta, host, ( ) => {
 //const evento = new Evento(0, "Banda THUNDER", "18h00", "20/03 - Quarta-Feira", "Teatro PP1", "2 horas", "Livre", "50", "100");
 //const evento = new Evento(1, "Banda EARTH", "19h00", "21/03 - Quinta-Feira", "Teatro PP2", "1 hora", "Livre", "40", "90");
 //const evento = new Evento(2, "Banda ICE", "20h00", "22/03 - Sexta-Feira", "Teatro PP1", "45 minutos", "Livre", "55", "110");
-const evento = new Evento(9, "Banda ICE", "22h00", "23/03 - Sábado", "Teatro PP2", "45 minutos", "Livre", "60", "125");
+//const evento = new Evento(9, "Banda ICE", "22h00", "23/03 - Sábado", "Teatro PP2", "45 minutos", "Livre", "60", "125");
 
 // GRAVAR
 
-evento.gravar( ).then(( ) => {
+/* evento.gravar( ).then(( ) => {
     console.log("Evento gravado com sucesso!");
 }).catch((erro) => {
     console.log(erro);
-});
+}); */
 
 // ATUALIZAR
 
